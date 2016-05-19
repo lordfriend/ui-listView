@@ -115,6 +115,10 @@ var UIListView = (function () {
         value: function updateRowOffsets(startIndex) {
             startIndex = startIndex || 0;
             var rows = this.rows;
+            if (rows.length === 0) {
+                this.layout();
+                return;
+            }
             var row;
             var currentOffset = rows[startIndex].offset;
             var i;
