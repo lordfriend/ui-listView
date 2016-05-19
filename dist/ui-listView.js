@@ -116,11 +116,14 @@ var UIListView = (function () {
             startIndex = startIndex || 0;
             var rows = this.rows;
             if (rows.length === 0) {
-                this.layout();
                 return;
             }
             var row;
-            var currentOffset = rows[startIndex].offset;
+            var currentRow = rows[startIndex];
+            if (!currentRow) {
+                return;
+            }
+            var currentOffset = currentRow.offset;
             var i;
 
             for (i = startIndex; i < rows.length; i++) {
